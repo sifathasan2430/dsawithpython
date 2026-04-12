@@ -32,6 +32,7 @@ def in_order(root):
 
 
 def find_successor(root,value):
+    
     if root is None:
         print("data not found")
     elif root.value==value:
@@ -42,12 +43,15 @@ def find_successor(root,value):
                 root=root.left
             print(f"successor:{root.value}")
             return root.value
+        
+        
+        
     elif root.value>value:
+        
         return find_successor(root.left,value)
     else:
         return find_successor(root.right,value)
     return root
-# find_successor(root,6)
 
 
 
@@ -58,7 +62,7 @@ def delete_tree(root,value):
     # print(root.value)
     if root is None:
         print("data is not found")
-    return None   
+        return None   
     if root.value==value:
         if root.left is None:
             return root.right
