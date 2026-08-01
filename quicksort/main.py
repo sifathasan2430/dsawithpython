@@ -1,30 +1,26 @@
-def quick_sort(array,l,r):
-    pivot=array[l]
-    print(array)
-    i=l
+def divider(array, l, r):
+    # print(f'CALL → l:{l}, r:{r}')
+    if l < r:
+        m = (l + r) // 2
+      
+        divider(array, l, m)
+        divider(array, m+1, r)
+        merge(array,l,r,m)
+       
+def merge(array,l,r,m):
+    L=array[l:m+1]
+    R=array[m+1:r+1]
+    print(f"left:{L}",end='|||')
+    print(f'right:{R}')
+    i=l,
     j=r
-  
-    while True:
-        while  array[i]<pivot:
-            i=i+1
-        while array[j]>pivot:
-            print("hit",j)
-            j=j-1
-        if i>=j:
-            
-            return j
-        
-        array[i],array[j]=array[j],array[i]
-        i=i+1
-        j=j-1
-
-def divided(array,l,r):
-    if l<r:
-        p=quick_sort(array,l,r)
-   
-        
-        divided(array,l,p)
-        divided(array,p+1,r)
-lists3=[4, 2, 6, 5, 3, 9]
-divided(lists3,0,len(lists3)-1)
-print(lists3)
+    k=l
+    left_size=len(l)
+    right_size=len(r)
+    while i<left_size and L[i]<R[j]:
+        array[k]=array[i]
+    
+    
+    
+lists=[12,16,14,22,13,24,30,10]
+divider(lists,0,len(lists)-1)

@@ -1,14 +1,16 @@
-def merge(array,l,r,m):
-    # print(array[l:m+1],array[m+1:r+1])
-    L=array[l:m+1]
-    R=array[m+1:r+1]
+class Solution(object):
+    def twoSum(self, nums, target):
+        def merge(array,l,r,m):
+    
+            L=array[l:m+1]
+            R=array[m+1:r+1]
 
     
-    new_sorted_array=[]
-    # i=j=k=0
-    i=j=0
+            
+    
+    ``i=j=0
     k=l
-    print(k)
+    
     while i<len(L)and j<len(R):
         if L[i]>R[j]:
             array[k]=R[j]
@@ -30,7 +32,7 @@ def merge(array,l,r,m):
         # new_sorted_array.append(R[j])
         j=j+1
         k=k+1
-    
+ 
     
 
 def divider(array,l,r):
@@ -42,9 +44,16 @@ def divider(array,l,r):
         divider(array,m+1,r)
         merge(array,l,r,m)
         
+        left=0
+        right=len(nums)-1
+        while left<right:
+            if nums[left]+nums[right]==target:
+                return [left,right]
+            elif nums[left]+nums[right]>=target:
+                right=right-1
+            else:
+                left=left+1
         
+                    
+    
         
-
-lists=[12,14,34,45,23,4]
-divider(lists,0,(len(lists)-1))
-print(lists)
